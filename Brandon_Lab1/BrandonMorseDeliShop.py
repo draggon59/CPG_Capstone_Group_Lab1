@@ -38,3 +38,19 @@ def get_sandwich_choice():
         except ValueError:
              print("Please Enter a NUMBER value between 1-4")
 
+
+# Ask the user if they want chips or drinks
+def ask_for_addons():
+     total = 0
+
+     chips = input("Would you like chips? (y/n): ").lower()
+     if chips == "y":
+          total += chips_price
+
+     drink = input("Would you like a drink? (y/n): ").lower()
+     if drink == "y":
+          total += drink_price
+
+     return total          
+                  
+
