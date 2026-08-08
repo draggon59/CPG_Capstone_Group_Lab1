@@ -16,10 +16,10 @@ drink_price = 2.49
 
 # Step 3: Logic to Display the menu
 def show_menu():
-        print ("\n---Brandon Morse Deli---")
-        for key, (name, price) in sandwiches.items():
-            # display the total with 2 decimal points (like normal money is displayed)
-            print(f"{key}. {name} - ${price:.2f}")   
+    print ("\n---Sandwiches---")
+    for key, (name, price) in sandwiches.items():
+        # display the total with 2 decimal points (like normal money is displayed)
+        print(f"{key}. {name} - ${price:.2f}")   
 
 
 # Step 4: Ask the user for a number to choose a sandwich
@@ -69,12 +69,16 @@ def mainMenu():
 
         total_cost += ask_for_addons()
 
-        # Ask if the user wants to add anything else
+        # DIsplay the user's current total AND ask if the user wants to add anything else
+        print(f"\nYour Current total is: ${total_cost:.2f}")
         ordering_again = input("Would like to add anything else to your order? (y/n): ").lower()
         if ordering_again != "y":
             break
 
 
-    # Print out the user's Total and thank them for their order
+    # Print out the user's total and thank them for their order
     print(f"\nYour total is: ${total_cost:.2f}")
     print("Thank you for your order!")
+
+if __name__ == "__main__":
+    mainMenu()
