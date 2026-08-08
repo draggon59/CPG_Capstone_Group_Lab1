@@ -39,7 +39,7 @@ def get_sandwich_choice():
              print("Please Enter a NUMBER value between 1-4")
 
 
-# Ask the user if they want chips or drinks
+# Step 5: Ask the user if they want chips or drinks
 def ask_for_addons():
      total = 0
 
@@ -51,6 +51,30 @@ def ask_for_addons():
      if drink == "y":
           total += drink_price
 
-     return total          
-                  
+     return total 
 
+# Step 6, Main Menu loop:
+def mainMenu():
+    total_cost = 0
+
+    print ("---Welcome to Brandon's Deli!---")
+
+    while True:
+        show_menu()
+
+        # Sandwich Selection   
+        name, price = get_sandwich_choice()
+        print(f"You currently have: {name} - ${price: .2f}")
+        total_cost += price
+
+        total_cost += ask_for_addons()
+
+        # Ask if the user wants to add anything else
+        ordering_again = input("Would like to add anything else to your order? (y/n): ").lower()
+        if ordering_again != "y":
+            break
+
+
+    # Print out the user's Total and thank them for their order
+    print(f"\nYour total is: ${total_cost:.2f}")
+    print("Thank you for your order!")
