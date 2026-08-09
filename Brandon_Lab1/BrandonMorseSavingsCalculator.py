@@ -86,7 +86,36 @@ def calculate_finances(
         end_date
 ):
 
+    # Step 4: Define the calculations the user will eventual see
+
     today = date.today()
 
+    if end_date < today:
+        raise ValueError("End date cannot be before today!")
 
-    
+    if first_payday > end_date:
+        paycheck_count = 0
+    else:
+        paycheck_count = count_paychecks(
+            today,
+            end_date,
+            first_payday,
+            pay_frequency
+        )    
+    total_income = money(
+        paycheck_amount * paycheck_count
+    )
+
+    total_expenses = calculate_expenses(
+        monthly_expenses,
+        today,
+        end_date
+    )
+
+    net_income = money(
+        total_income - total_expenses
+    )
+
+    return paycheck_count, total_income, total_expenses, net_income
+
+# Step 5: 
