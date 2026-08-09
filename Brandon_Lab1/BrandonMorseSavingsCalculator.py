@@ -193,14 +193,14 @@ def main():
             except ValueError:
                 print("Please enter a positive number amount!")
 
-while True:
-    end_date = get_date(
-        "\nWhat date do you want to see your savings?"
-        "(YYYY-MM-DD):"
-    )
+    while True:
+        end_date = get_date(
+            "\nWhat date do you want to see your savings?"
+            "(YYYY-MM-DD):"
+        )
 
-    if end_date >= today:
-        break
+        if end_date >= today:
+            break
 
     print("The end date cannot be before today!")
 
