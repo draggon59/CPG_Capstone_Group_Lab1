@@ -118,4 +118,25 @@ def calculate_finances(
 
     return paycheck_count, total_income, total_expenses, net_income
 
-# Step 5: 
+# Step 5: Prompt the suer to enter the date in YYYY-MM-DD format
+def get_date(prompt):
+
+    while True:
+        value = input(prompt)
+
+        try:
+            return date.fromisoformat(value)
+
+        except ValueError:
+            print("Please enter the date in YYYY-MM-DD format!")
+
+
+# Step 6: Show the user the current date
+
+today = date.today()
+
+print ("===========================")
+print ("   Savings Calculator")
+print ("===========================")
+
+print (f"\nToday's date: {today}")
