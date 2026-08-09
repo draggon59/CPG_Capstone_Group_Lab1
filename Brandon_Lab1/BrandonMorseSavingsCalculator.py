@@ -204,9 +204,34 @@ def main():
 
     print("The end date cannot be before today!")
 
+    try:
+        paycheck_count, total_income, total_expenses, net_income = (
+            calculate_finances(
+                paycheck_amount,
+                frequency,
+                first_payday,
+                monthly_expenses,
+                end_date
+            )
+        )
 
+    except ValueError as error:
+        print(f"\nError: {error}")
+        return
 
+    print("\n" + "==============================")
+    print("           YOUR INFO              ")
+    print("==============================")
 
+    print(f"Calculation period: {today} --> {end_date}")
+    print(f"Pay frequency:      {frequency}")
+    print(f"Paycheck amount:    ${paycheck_amount:,.2f}")
+    print(f"Number of checks:   {paycheck_count}")
+    print(f"Total income:       ${total_income:,.2f}")
+    print(f"Total expenses:     ${total_expenses:,.2f}")
+    print("====================")
+    print(f"   NET INCOME:         ${net_income:,.2f}")
+    print("====================")
 
 
 
