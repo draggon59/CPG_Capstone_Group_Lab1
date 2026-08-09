@@ -76,7 +76,7 @@ def calculate_expenses(monthly_expenses, start_date, end_date):
 
         current_date = next_month
 
-        return money(total_expenses)
+    return money(total_expenses)
 
 def calculate_finances(
         paycheck_amount,
@@ -146,10 +146,10 @@ def main():
     # Step 7: prompt the user to choose weekly or biweekly pay
     while True:
         frequency = input(
-            "\nAre you paid weekly or biweekly or biweekly?"
+            "\nAre you paid weekly or biweekly?"
         ).strip().lower()
 
-        if frequency in ("weekly", "biweeky"):
+        if frequency in ("weekly", "biweekly"):
             break
 
         print("Please enter 'weekly' or 'biweekly'")
@@ -172,12 +172,12 @@ def main():
         except ValueError:
             print("Please enter a valid positive amount.")
 
-        #Step 9: Ask WHEN the user gets paid next
-        print("\nEnter your payday date:")
+    #Step 9: Ask WHEN the user gets paid next
+    print("\nEnter your payday date:")
 
-        first_payday = get_date("Payday (YYYY-MM-DD): ")
+    first_payday = get_date("Payday (YYYY-MM-DD): ")
 
-        while True:
+    while True:
             try:
                 monthly_expenses = money(
                     input(
@@ -202,7 +202,7 @@ def main():
         if end_date >= today:
             break
 
-    print("The end date cannot be before today!")
+        print("The end date cannot be before today!")
 
     try:
         paycheck_count, total_income, total_expenses, net_income = (
@@ -232,7 +232,6 @@ def main():
     print("====================")
     print(f"   NET INCOME:         ${net_income:,.2f}")
     print("====================")
-
 
 
 if __name__ == "__main__":
