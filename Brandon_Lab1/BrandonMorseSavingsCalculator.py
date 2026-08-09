@@ -140,3 +140,42 @@ print ("   Savings Calculator")
 print ("===========================")
 
 print (f"\nToday's date: {today}")
+
+
+# Step 7: prompt the user to choose weekly or biweekly pay
+while True:
+    frequency = input(
+        "\nAre you paid weekly or biweekly or biweekly?"
+    ).strip().lower()
+
+    if frequency in ("weekly", "biweeky"):
+        break
+
+    print("Please enter 'weekly' or 'biweekly'")
+
+while True:
+        try:
+            paycheck_amount = money(
+                input(
+                    "\nHow much is your take-home pay per paycheck? $"
+                )
+            )
+
+            if paycheck_amount <= 0:
+                raise ValueError
+
+            break
+
+        except ValueError:
+            print("Please enter a valid positive amount.")
+
+print("\nEnter your payday date:")
+
+first_payday = get_date("Payday (YYYY-MM-DD): ")
+
+
+
+
+
+if __name__ == "__main__":
+    main()
