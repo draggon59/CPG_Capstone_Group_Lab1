@@ -132,28 +132,31 @@ def get_date(prompt):
 
 
 # Step 6: Show the user the current date
+def main():
 
-today = date.today()
+    today = date.today()
 
-print ("===========================")
-print ("   Savings Calculator")
-print ("===========================")
+    print ("===========================")
+    print ("   Savings Calculator")
+    print ("===========================")
 
-print (f"\nToday's date: {today}")
+    print (f"\nToday's date: {today}")
 
 
-# Step 7: prompt the user to choose weekly or biweekly pay
-while True:
-    frequency = input(
-        "\nAre you paid weekly or biweekly or biweekly?"
-    ).strip().lower()
+    # Step 7: prompt the user to choose weekly or biweekly pay
+    while True:
+        frequency = input(
+            "\nAre you paid weekly or biweekly or biweekly?"
+        ).strip().lower()
 
-    if frequency in ("weekly", "biweeky"):
-        break
+        if frequency in ("weekly", "biweeky"):
+            break
 
-    print("Please enter 'weekly' or 'biweekly'")
+        print("Please enter 'weekly' or 'biweekly'")
 
-while True:
+        #Step 8: Ask the user HOW MUCH they get paid per-paycheck
+
+    while True:
         try:
             paycheck_amount = money(
                 input(
@@ -169,9 +172,39 @@ while True:
         except ValueError:
             print("Please enter a valid positive amount.")
 
-print("\nEnter your payday date:")
+        #Step 9: Ask WHEN the user gets paid next
+        print("\nEnter your payday date:")
 
-first_payday = get_date("Payday (YYYY-MM-DD): ")
+        first_payday = get_date("Payday (YYYY-MM-DD): ")
+
+        while True:
+            try:
+                monthly_expenses = money(
+                    input(
+                "\nWhat are your total monthly expenses? $"
+            )
+        )
+
+                if monthly_expenses < 0:
+                    raise ValueError
+
+                break
+
+            except ValueError:
+                print("Please enter a positive number amount!")
+
+while True:
+    end_date = get_date(
+        "\nWhat date do you want to see your savings?"
+        "(YYYY-MM-DD):"
+    )
+
+    if end_date >= today:
+        break
+
+    print("The end date cannot be before today!")
+
+
 
 
 
