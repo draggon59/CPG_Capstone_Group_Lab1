@@ -137,7 +137,7 @@ def main():
     today = date.today()
 
     print ("===========================")
-    print ("   Savings Calculator")
+    print ("     Savings Calculator")
     print ("===========================")
 
     print (f"\nToday's date: {today}")
