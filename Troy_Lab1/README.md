@@ -11,3 +11,5 @@ Open your terminal or command prompt, navigate to the folder, and run:
 
 bash:
 python quiz_game.py
+
+Troy creates a merge conflict on this line
