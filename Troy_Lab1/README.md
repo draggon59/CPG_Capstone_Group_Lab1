@@ -11,3 +11,5 @@ Open your terminal or command prompt, navigate to the folder, and run:
 
 bash:
 python quiz_game.py
+
+BrandonM was here (merge conflict)
