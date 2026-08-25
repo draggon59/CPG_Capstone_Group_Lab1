@@ -116,3 +116,4 @@ venv.bak/
 env/
 venv/
 ENV/
+.DS_Store
