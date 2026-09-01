@@ -62,7 +62,8 @@ cat > /var/www/html/index.html <<'EOF'
             <h2>Project Description</h2>
 
             <p>
-                This website was created as part of an AWS EC2
+                My name is Brandon Morse and this website was 
+                created as part of an AWS EC2
                 automation lab. The EC2 instance automatically
                 installs Apache and creates this website using
                 a Bash startup script.
@@ -80,7 +81,7 @@ cat > /var/www/html/index.html <<'EOF'
             <h2>Contact</h2>
 
             <p>
-                Thank you for visiting my website!
+                Thank you for visiting my website! Brandon btw!
             </p>
         </section>
 
@@ -139,3 +140,50 @@ footer {
     padding: 20px;
 }
 EOF
+
+# create a placeholder image file and download a small sample image for the website
+curl -L \
+    "https://placehold.co/400x300.jpg" \
+    -o /var/www/html/images/profile.jpg
+
+mkdir -p /home/ec2-user/backups/web_backup
+
+cp /var/www/html/index.html \
+   /home/ec2-user/backups/web_backup/
+
+cp /var/www/html/styles.css \
+   /home/ec2-user/backups/web_backup/
+
+cp /var/www/html/images/profile.jpg \
+   /home/ec2-user/backups/web_backup/
+
+mkdir -p /home/ec2-user/log-archive
+
+touch /home/ec2-user/log-archive/log1.txt
+touch /home/ec2-user/log-archive/log2.txt
+touch /home/ec2-user/log-archive/log3.txt
+touch /home/ec2-user/log-archive/log4.txt
+
+echo "Log archive file 1" > /home/ec2-user/log-archive/log1.txt
+echo "Log archive file 2" > /home/ec2-user/log-archive/log2.txt
+echo "Log archive file 3" > /home/ec2-user/log-archive/log3.txt
+echo "Log archive file 4" > /home/ec2-user/log-archive/log4.txt
+
+mkdir -p /home/ec2-user/content
+mkdir -p /home/ec2-user/utils
+mkdir -p /home/ec2-user/credentials
+
+echo "Content directory placeholder" \
+    > /home/ec2-user/content/README.txt
+
+echo "Utils directory placeholder" \
+    > /home/ec2-user/utils/README.txt
+
+echo "Credentials directory placeholder" \
+    > /home/ec2-user/credentials/README.txt
+
+chown -R apache:apache /var/www/html
+
+systemctl restart httpd
+
+echo "EC2 startup script completed successfully!"
